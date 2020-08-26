@@ -1,0 +1,1055 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Point3D?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="756.0" prefWidth="1565.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.mainMenuController_V2">
+   <children>
+      <BorderPane layoutX="137.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="756.0" prefWidth="1263.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="137.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <AnchorPane prefHeight="76.0" prefWidth="1350.0" style="-fx-background-color: #fafafa;" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane layoutX="1186.0" layoutY="-1.0" prefHeight="75.0" prefWidth="241.0" style="-fx-background-color: #f1f3ce; -fx-border-color: #00293C;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
+                     <children>
+                        <Label fx:id="profileLbl" layoutX="6.0" layoutY="28.0" prefHeight="27.0" prefWidth="159.0" style="-fx-border-color: #00293C;" textFill="#141e22">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets left="3.0" />
+                           </padding>
+                        </Label>
+                        <Button fx:id="notificationsButton" layoutX="200.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleNotifications" prefHeight="27.0" prefWidth="3.0" styleClass="button5" stylesheets="@../styles/style_sheet.css">
+                           <graphic>
+                              <FontAwesomeIcon fill="#f62a00" iconName="BELL" selectionStart="0" size="15" />
+                           </graphic>
+                        </Button>
+                        <Button fx:id="changePassBtn" layoutX="167.0" layoutY="28.0" mnemonicParsing="false" onAction="#changePass" prefHeight="27.0" prefWidth="30.0" styleClass="button6" stylesheets="@../styles/style_sheet.css" textFill="WHITE">
+                           <graphic>
+                              <FontAwesomeIcon iconName="KEY" />
+                           </graphic></Button>
+                     </children>
+                  </Pane>
+                  <StackPane layoutX="-1.0" layoutY="5.0" prefHeight="75.0" prefWidth="1187.0" style="-fx-background-color: #f1f3ce;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="241.0" AnchorPane.topAnchor="1.0">
+                     <children>
+                        <GridPane fx:id="gpSpisok" style="-fx-background-color: #fafafa; -fx-border-color: #00293C;">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="63.0" prefWidth="1047.0" style="-fx-background-color: #f1f3ce;">
+                                 <children>
+                                    <Label prefHeight="35.0" prefWidth="271.0" text="Список оборудования">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox fx:id="typeObSpisokComboBx" prefHeight="40.0" prefWidth="192.0" promptText="Тип оборудования" style="-fx-border-color: #00293C; -fx-background-color: #D3D3D3;" />
+                                    <ComboBox fx:id="kritSpisokComboBx" prefHeight="40.0" prefWidth="198.0" promptText="Критерий поиска" style="-fx-border-color: #00293C; -fx-background-color: #D3D3D3;">
+                                       <HBox.margin>
+                                          <Insets left="2.0" />
+                                       </HBox.margin></ComboBox>
+                                    <TextField fx:id="inputSpisokTextField" prefHeight="40.0" prefWidth="280.0" promptText="Введите инвентарный номер товара" style="-fx-background-color: #D3D3D3; -fx-border-color: #00293C;">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="2.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <Button fx:id="btnPoiskTable" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#handlePoiskInSpisok" prefHeight="40.0" prefWidth="98.0" styleClass="button4" stylesheets="@../styles/style_sheet.css" text="Поиск" textFill="#fafafa">
+                                       <graphic>
+                                          <FontAwesomeIcon fill="WHITE" iconName="SEARCH" />
+                                       </graphic>
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <HBox.margin>
+                                          <Insets left="2.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </GridPane>
+                        <GridPane fx:id="gpNotifications" style="-fx-background-color: #f1f3ce; -fx-border-color: #00293C;">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label prefHeight="76.0" prefWidth="1048.0" text="Панель уведомлений">
+                                 <font>
+                                    <Font size="48.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </GridPane>
+                        <GridPane fx:id="gpPrinyat" style="-fx-background-color: #f1f3ce; -fx-border-color: #00293C;">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label prefHeight="70.0" prefWidth="880.0" text="Принять оборудование у пользователя">
+                                 <font>
+                                    <Font size="48.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="5.0" />
+                                 </GridPane.margin>
+                              </Label>
+                           </children>
+                        </GridPane>
+                        <GridPane fx:id="gpNastroyiki" style="-fx-background-color: #f1f3ce; -fx-border-color: #00293C;">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label prefHeight="76.0" prefWidth="1048.0" text="Панель справки">
+                                 <font>
+                                    <Font size="48.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </GridPane>
+                        <GridPane fx:id="gpAdd" style="-fx-background-color: #f1f3ce; -fx-border-color: #00293C;">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label prefHeight="73.0" prefWidth="1158.0" text="Редактор пользователей и оборудования">
+                                 <font>
+                                    <Font size="40.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="5.0" />
+                                 </GridPane.margin>
+                              </Label>
+                           </children>
+                        </GridPane>
+                        <GridPane fx:id="gpVydacha" alignment="CENTER_LEFT" prefHeight="76.0" prefWidth="948.0" style="-fx-background-color: #f1f3ce; -fx-border-color: #00293C;">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label prefHeight="73.0" prefWidth="812.0" text=" Выдать обрудование пользователю">
+                                 <font>
+                                    <Font size="48.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="-7.0" />
+                                 </GridPane.margin>
+                              </Label>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </StackPane>
+               </children>
+            </AnchorPane>
+         </top>
+         <center>
+            <StackPane alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="681.0" prefWidth="1346.0" style="-fx-background-color: #fafafa;" BorderPane.alignment="TOP_LEFT">
+               <children>
+                  <GridPane fx:id="gpNotifications1" alignment="CENTER" prefHeight="664.0" prefWidth="1428.0" style="-fx-background-color: #1e656d;" StackPane.alignment="TOP_LEFT">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <AnchorPane>
+                           <children>
+                              <TableView fx:id="tableNotifications" cache="true" editable="true" layoutX="1.0" prefHeight="222.0" prefWidth="1426.0" style="-fx-border-color: #00293C;" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="459.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0">
+                                 <columns>
+                                    <TableColumn fx:id="invNumberColNot" prefWidth="90.0" text="Инв №" />
+                                    <TableColumn fx:id="SNColNot" minWidth="0.0" prefWidth="120.0" text="S/N" />
+                                    <TableColumn fx:id="nameColNot" minWidth="0.0" prefWidth="155.0" text="Наименование" />
+                                    <TableColumn fx:id="recievedColNot" minWidth="0.0" prefWidth="133.0" text="Перемещена на " />
+                                    <TableColumn fx:id="locationColNot" minWidth="8.79998779296875" prefWidth="65.0" text="Адрес" />
+                                    <TableColumn fx:id="dateColNot" minWidth="0.0" prefWidth="131.0" text="Дата выдачи" />
+                                    <TableColumn fx:id="peremech_1CColNot" minWidth="0.0" text="№ на перемещение_1С" />
+                                    <TableColumn fx:id="nakl_1CColNot" minWidth="0.0" prefWidth="102.0" text="№ накл_1С" />
+                                    <TableColumn fx:id="kto_vydalColNot" minWidth="3.2000732421875" prefWidth="99.0" text="Выдал" />
+                                    <TableColumn fx:id="REQColNot" minWidth="3.99993896484375" prefWidth="96.0" text="REQ" />
+                                    <TableColumn fx:id="transportNaklColNot" minWidth="0.0" prefWidth="77.0" text="№ТранспортНакл" />
+                                    <TableColumn fx:id="descColNot" minWidth="3.99993896484375" prefWidth="65.0" text="Описание" />
+                                    <TableColumn fx:id="MACColNot" prefWidth="211.0" text="Mac-Address" />
+                                 </columns>
+                                 <padding>
+                                    <Insets right="1.0" />
+                                 </padding>
+                              </TableView>
+                              <AnchorPane layoutX="1.0" layoutY="229.0" prefHeight="456.0" prefWidth="1428.0" style="-fx-border-color: #00293C;" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0">
+                                 <children>
+                                    <Label fx:id="successNoteLbl" layoutX="771.0" layoutY="23.0" prefHeight="43.0" prefWidth="498.0" textFill="#2af600">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="helpBtnNote" layoutX="1384.0" layoutY="414.0" mnemonicParsing="false" onAction="#handleNotifications" prefHeight="28.0" prefWidth="17.0" style="-fx-border-color: #00293C;" styleClass="button1" stylesheets="@../styles/style_sheet.css" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0">
+                                       <graphic>
+                                          <FontAwesomeIcon iconName="QUESTION" selectionEnd="0" size="20" />
+                                       </graphic>
+                                    </Button>
+                                    <StackPane layoutY="106.0" prefHeight="335.0" prefWidth="1181.0">
+                                       <children>
+                                          <Pane fx:id="paneEditNote" prefHeight="335.0" prefWidth="1148.0" style="-fx-background-color: #1e656d;">
+                                             <children>
+                                                <TextField fx:id="invTextFieldNote" layoutX="1.0" layoutY="67.0" prefHeight="37.0" prefWidth="368.0" promptText="Инвентарный номер" style="-fx-border-color: #87CEEB;" styleClass="text-field" stylesheets="@../styles/style_sheet.css" />
+                                                <TextField fx:id="nameTextFieldNote" layoutX="773.0" layoutY="67.0" prefHeight="37.0" prefWidth="368.0" promptText="Наименование товара" style="-fx-border-color: #87CEEB;" />
+                                                <TextField fx:id="snTextFieldNote" layoutX="387.0" layoutY="67.0" prefHeight="37.0" prefWidth="368.0" promptText="Серийный номер" style="-fx-border-color: #87CEEB;" />
+                                                <TextField fx:id="peremechenTextFieldNote" layoutX="1.0" layoutY="118.0" prefHeight="37.0" prefWidth="368.0" promptText="Перемещен на" style="-fx-border-color: #87CEEB;" />
+                                                <TextField fx:id="gorodTextFieldNote" layoutX="387.0" layoutY="118.0" prefHeight="37.0" prefWidth="368.0" promptText="Город / Адрес" style="-fx-border-color: #87CEEB;" />
+                                                <TextField fx:id="zayavka1CTextFieldNote" layoutX="1.0" layoutY="173.0" prefHeight="37.0" prefWidth="369.0" promptText="№ Заявки на перемещение 1С" style="-fx-border-color: #87CEEB;" />
+                                                <TextField fx:id="REQTextFieldNote" layoutX="772.0" layoutY="173.0" prefHeight="37.0" prefWidth="370.0" promptText="REQ номер заявки" style="-fx-border-color: #87CEEB;" />
+                                                <TextField fx:id="nomerTransportTextFieldNote" layoutX="1.0" layoutY="223.0" prefHeight="37.0" prefWidth="370.0" promptText="№ Транспортной накладной" style="-fx-border-color: #87CEEB;" />
+                                                <TextField fx:id="commentsTextFieldNote" layoutX="773.0" layoutY="223.0" prefHeight="37.0" prefWidth="368.0" promptText="Комментарий / Статус" style="-fx-border-color: #87CEEB;" />
+                                                <Label fx:id="ktoVydalLblNote" alignment="CENTER" layoutX="85.0" layoutY="280.0" prefHeight="37.0" prefWidth="286.0" style="-fx-border-color: #87CEEB; -fx-background-color: #fafafa;" />
+                                                <Label layoutY="280.0" prefHeight="37.0" prefWidth="85.0" style="-fx-border-color: #87CEEB; -fx-background-color: #fafafa;" text="Редактировал" />
+                                                <TextField fx:id="MacAddresFieldNote" layoutX="387.0" layoutY="223.0" prefHeight="37.0" prefWidth="369.0" promptText="Mac-Address (Для принтера)" style="-fx-border-color: #87CEEB;" />
+                                                <CheckBox fx:id="checkBxNote" layoutX="387.0" layoutY="277.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="368.0" text="Данные проверенны и введены корректно" textFill="WHITE">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </CheckBox>
+                                                <Label layoutX="1.0" layoutY="14.0" prefHeight="37.0" prefWidth="753.0" style="-fx-background-color: #fafafa;" text="Заполните недостоющие данные в полях ниже!">
+                                                   <font>
+                                                      <Font size="24.0" />
+                                                   </font>
+                                                </Label>
+                                                <Button fx:id="saveBtnNote" alignment="TOP_LEFT" layoutX="773.0" layoutY="278.0" mnemonicParsing="false" onAction="#handleNotifications" prefHeight="39.0" prefWidth="368.0" styleClass="button1" stylesheets="@../styles/style_sheet.css" text="Сохранить">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Button>
+                                                <TextField fx:id="nomerNakl1CTextFieldNote" layoutX="387.0" layoutY="173.0" prefHeight="37.0" prefWidth="370.0" promptText="№ Накладной 1С" style="-fx-border-color: #87CEEB;" />
+                                                <Label fx:id="dateFieldNote" layoutX="772.0" layoutY="118.0" prefHeight="37.0" prefWidth="370.0" style="-fx-background-color: #fafafa;">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                   <padding>
+                                                      <Insets left="7.0" />
+                                                   </padding>
+                                                </Label>
+                                                <Label fx:id="ErrorNoteLbl" alignment="CENTER" layoutX="772.0" layoutY="15.0" prefHeight="43.0" prefWidth="370.0" textFill="#f62a00">
+                                                   <font>
+                                                      <Font size="24.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </Pane>
+                                          <Pane fx:id="paneSpravka" prefHeight="335.0" prefWidth="1213.0" style="-fx-background-color: #1e656d;">
+                                             <children>
+                                                <Label alignment="TOP_LEFT" layoutX="1.0" layoutY="33.0" prefHeight="33.0" prefWidth="1180.0" style="-fx-background-color: #FAFBEE;" text="1) В панели уведомлений вы можете дополнить данные котрые было невозможно заполнить при выдачи оборудования.">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label alignment="TOP_LEFT" layoutX="1.0" layoutY="66.0" prefHeight="33.0" prefWidth="1180.0" style="-fx-background-color: #FAFBEE;" text="2) Если данные не должны быть заполнены (расматривается для конкретной ситуации. Например поле &quot;Mac-Address&quot;) просто добавьте &quot;-&quot;.   ">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label alignment="TOP_LEFT" layoutX="1.0" prefHeight="33.0" prefWidth="1180.0" style="-fx-background-color: #FAFBEE;" text="Добро пожаловать в панель уведомлений!">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </Pane>
+                                          <Pane fx:id="panePustyshkatNote" prefHeight="384.0" prefWidth="1286.0" style="-fx-background-color: #1e656d;" />
+                                       </children>
+                                    </StackPane>
+                                    <Label layoutY="23.0" prefHeight="43.0" prefWidth="489.0" style="-fx-background-color: #fafafa;" text="Выбрать этот элемент для редактирования?">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font></Label>
+                                    <Button fx:id="vyborBtnNote1" alignment="CENTER" layoutX="500.0" layoutY="23.0" mnemonicParsing="false" onAction="#handleNotifications" prefHeight="43.0" prefWidth="256.0" style="-fx-border-color: #00293C;" styleClass="button1" stylesheets="@../styles/style_sheet.css" text="Выбрать">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </GridPane>
+                  <StackPane fx:id="gpSpisok1" style="-fx-background-color: #3C5B68;">
+                     <children>
+                        <GridPane fx:id="gpSpisokBU" alignment="CENTER" style="-fx-background-color: #3C5B68;" StackPane.alignment="TOP_LEFT">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <TableView fx:id="tableSpisokBU" cache="true" editable="true" style="-fx-border-color: #fafafa;" tableMenuButtonVisible="true">
+                                 <columns>
+                                    <TableColumn fx:id="invBUSpisok" prefWidth="88.0" text="Инв №" />
+                                    <TableColumn fx:id="SNBUSpisok" prefWidth="167.99998474121094" text="S/N" />
+                                    <TableColumn fx:id="nameBUSpisok" prefWidth="348.00006103515625" text="Наименование" />
+                                    <TableColumn fx:id="prinaylBUSpisok" minWidth="3.199951171875" prefWidth="228.79998779296875" text="Кто принял" />
+                                    <TableColumn fx:id="sdalBUSpisok" minWidth="3.2000732421875" prefWidth="236.79998779296875" text="Кто сдал" />
+                                    <TableColumn fx:id="macBUSpisok" prefWidth="271.2000488281251" text="Mac-Address" />
+                                 </columns>
+                                 <padding>
+                                    <Insets right="1.0" />
+                                 </padding>
+                                 <GridPane.margin>
+                                    <Insets left="2.0" right="2.0" />
+                                 </GridPane.margin>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                           </children>
+                        </GridPane>
+                        <GridPane fx:id="gpSpisokINV" alignment="CENTER" prefHeight="681.0" prefWidth="1418.0" style="-fx-background-color: #3C5B68;" StackPane.alignment="TOP_LEFT">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <TableView fx:id="tableSpisok" cache="true" editable="true" prefHeight="680.0" prefWidth="1443.0" style="-fx-border-color: #fafafa;" tableMenuButtonVisible="true">
+                                 <columns>
+                                    <TableColumn fx:id="invNumber1" prefWidth="90.0" text="Инв №" />
+                                    <TableColumn fx:id="SN" minWidth="0.0" prefWidth="120.0" text="S/N" />
+                                    <TableColumn fx:id="name" minWidth="0.0" prefWidth="155.0" text="Наименование" />
+                                    <TableColumn fx:id="recieved" minWidth="0.0" prefWidth="133.0" text="Перемещена на " />
+                                    <TableColumn fx:id="location" minWidth="8.79998779296875" prefWidth="65.0" text="Адрес" />
+                                    <TableColumn fx:id="date" minWidth="0.0" prefWidth="131.0" text="Дата выдачи" />
+                                    <TableColumn fx:id="peremech_1C" minWidth="0.0" text="№ на перемещение_1С" />
+                                    <TableColumn fx:id="nakl_1C" minWidth="0.0" prefWidth="102.0" text="№ накл_1С" />
+                                    <TableColumn fx:id="kto_vydal" minWidth="3.2000732421875" prefWidth="99.0" text="Выдал" />
+                                    <TableColumn fx:id="REQ" minWidth="3.99993896484375" prefWidth="96.0" text="REQ" />
+                                    <TableColumn fx:id="transportNakl" minWidth="0.0" prefWidth="77.0" text="№ТранспортНакл" />
+                                    <TableColumn fx:id="desc" minWidth="3.99993896484375" prefWidth="65.0" text="Описание" />
+                                    <TableColumn fx:id="MAC" prefWidth="211.0" text="Mac-Address" />
+                                 </columns>
+                                 <padding>
+                                    <Insets right="1.0" />
+                                 </padding>
+                                 <GridPane.margin>
+                                    <Insets left="-10.0" right="2.0" />
+                                 </GridPane.margin>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                           </children>
+                           <StackPane.margin>
+                              <Insets left="10.0" />
+                           </StackPane.margin>
+                        </GridPane>
+                     </children>
+                  </StackPane>
+                  <GridPane fx:id="gpPrinyat1" style="-fx-background-color: #1e656d;" StackPane.alignment="CENTER">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <AnchorPane prefHeight="683.0" prefWidth="1365.0" style="-fx-background-color: #1e656d;">
+                           <children>
+                              <AnchorPane layoutX="10.0" layoutY="27.0" prefHeight="534.0" prefWidth="1416.0">
+                                 <children>
+                                    <StackPane layoutY="160.0" prefHeight="295.0" prefWidth="1413.0" AnchorPane.leftAnchor="0.0">
+                                       <children>
+                                          <GridPane fx:id="gpTable" alignment="TOP_CENTER" prefHeight="295.0" prefWidth="1355.0" style="-fx-background-color: #1e656d; -fx-border-color: #1e656d;">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints maxHeight="666.4" minHeight="10.0" prefHeight="242.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="666.4" minHeight="2.20001220703125" prefHeight="51.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <TableView fx:id="tableSpisok1" editable="true" prefHeight="179.0" prefWidth="1289.0" style="-fx-border-color: #3C5B68;" tableMenuButtonVisible="true">
+                                                   <columns>
+                                                      <TableColumn fx:id="prnColInv" prefWidth="92.80000305175781" text="Инв №" />
+                                                      <TableColumn fx:id="prnColSN" prefWidth="114.39999389648438" text="S/N" />
+                                                      <TableColumn fx:id="prnColName" prefWidth="153.60003662109375" text="Наименование" />
+                                                      <TableColumn fx:id="prnColRecieved" prefWidth="116.80001831054688" text="Перемещена на " />
+                                                      <TableColumn fx:id="prnColLocation" minWidth="8.79998779296875" prefWidth="92.79998779296875" text="Адрес" />
+                                                      <TableColumn fx:id="prnColDate" prefWidth="112.0" text="Дата выдачи" />
+                                                      <TableColumn fx:id="prnColPeremechenie" minWidth="0.0" prefWidth="201.5999755859375" text="№ на перемещение_1С" />
+                                                      <TableColumn fx:id="prnColNakl" minWidth="0.0" prefWidth="0.0" text="№ накл_1С" />
+                                                      <TableColumn fx:id="prnColKto_vydald" minWidth="3.2000732421875" prefWidth="117.60009765625" text="Выдал" />
+                                                      <TableColumn fx:id="prnColREQ" minWidth="3.99993896484375" prefWidth="127.199951171875" text="REQ" />
+                                                      <TableColumn fx:id="prnColTransport" minWidth="0.0" prefWidth="106.4000244140625" text="№ТранспортНакл" />
+                                                      <TableColumn fx:id="prnColMAC" prefWidth="167.199951171875" text="Mac-Address" />
+                                                      <TableColumn fx:id="prnColDesc1" prefWidth="125.5999755859375" text="Описание" />
+                                                   </columns>
+                                                   <padding>
+                                                      <Insets right="1.0" />
+                                                   </padding>
+                                                </TableView>
+                                                <HBox alignment="CENTER" prefHeight="55.0" prefWidth="1303.0" spacing="58.0" style="-fx-background-color: #1e656d;" GridPane.rowIndex="1">
+                                                   <children>
+                                                      <Label fx:id="lblPrinyatName" prefHeight="35.0" prefWidth="258.0" text="Оборудование принял:" textFill="#fafafa">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets right="1.0" />
+                                                         </HBox.margin>
+                                                      </Label>
+                                                      <Label fx:id="lblPrinyatName1" prefHeight="35.0" prefWidth="238.0" textFill="#fafafa">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <CheckBox fx:id="checkBxPrinyat" mnemonicParsing="false" prefHeight="43.0" prefWidth="307.0" stylesheets="@../styles/style_sheet.css" text="Данные проверенны и введены корректно" textFill="WHITE">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </CheckBox>
+                                                      <Button fx:id="prinyatObBtn" alignment="BASELINE_CENTER" mnemonicParsing="false" onAction="#handlePoiskInPrinyat" prefHeight="30.0" prefWidth="307.0" styleClass="button1" stylesheets="@../styles/style_sheet.css" text="Принять">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                         <graphic>
+                                                            <FontAwesomeIcon iconName="CHECK" size="20">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </FontAwesomeIcon>
+                                                         </graphic>
+                                                      </Button>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                             <StackPane.margin>
+                                                <Insets left="-1.0" />
+                                             </StackPane.margin>
+                                          </GridPane>
+                                          <GridPane fx:id="gpPustyshka" prefHeight="188.0" prefWidth="1303.0" style="-fx-background-color: #1E656D;">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints maxHeight="144.8" minHeight="10.0" prefHeight="144.8" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="67.59998168945313" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                          </GridPane>
+                                       </children>
+                                    </StackPane>
+                                    <TextField fx:id="invNumber" layoutY="86.0" prefHeight="43.0" prefWidth="810.0" promptText="Инвентарный номер" style="-fx-border-color: #87CEEB;" styleClass="text-field" stylesheets="@../styles/style_sheet.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="606.0">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <Pane prefHeight="43.0" prefWidth="863.0" style="-fx-background-color: #fafafa;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="427.0">
+                                       <children>
+                                          <Label layoutY="2.0" prefHeight="40.0" prefWidth="398.0" text="Заполните данные для принятия оборудования">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Pane>
+                                    <Button fx:id="poiskBtn" alignment="CENTER" layoutX="824.0" layoutY="86.0" mnemonicParsing="false" onAction="#handlePoiskInPrinyat" prefHeight="43.0" prefWidth="165.0" styleClass="button1" stylesheets="@../styles/style_sheet.css" text="Поиск" AnchorPane.leftAnchor="824.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <graphic>
+                                          <FontAwesomeIcon iconName="SEARCH" size="15" text="" />
+                                       </graphic>
+                                    </Button>
+                                    <Label fx:id="promptLbl" layoutX="997.0" layoutY="90.0" prefHeight="36.0" prefWidth="314.0" textFill="#ff4444">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </GridPane>
+                  <AnchorPane fx:id="gpVydacha1" prefHeight="656.0" prefWidth="1395.0" style="-fx-background-color: #1e656d;">
+                     <children>
+                        <AnchorPane layoutX="907.0" layoutY="34.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="518.0" style="-fx-background-color: #87CEEB; -fx-border-color: #00293C;" AnchorPane.leftAnchor="907.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="34.0">
+                           <children>
+                              <Label layoutY="-59.0" prefHeight="43.0" prefWidth="462.0" style="-fx-background-color: #fafafa;" text="Панель поиска оборудования " AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </Label>
+                              <TextField fx:id="invPoiskTextField" layoutX="4.0" layoutY="55.0" prefHeight="37.0" prefWidth="285.0" promptText="Введите инвентарный номер" style="-fx-border-color: #00293C;" styleClass="text-field" stylesheets="@../styles/style_sheet.css" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="229.0" />
+                              <ComboBox fx:id="typeObPanelPoiskaComboBx" layoutX="299.0" layoutY="55.0" prefHeight="37.0" prefWidth="98.0" promptText="Тип " style="-fx-border-color: #00293C;" stylesheets="@../styles/style_sheet.css" AnchorPane.rightAnchor="121.0" />
+                              <Button fx:id="poiskObBtn" layoutX="407.0" layoutY="55.0" mnemonicParsing="false" onAction="#handlePoiskInTable" prefHeight="37.0" prefWidth="104.0" style="-fx-border-color: #00293C;" styleClass="button1" stylesheets="@../styles/style_sheet.css" text="Поиск" AnchorPane.rightAnchor="7.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <graphic>
+                                    <FontAwesomeIcon iconName="SEARCH" size="20">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </FontAwesomeIcon>
+                                 </graphic>
+                              </Button>
+                              <StackPane layoutX="7.0" layoutY="100.0" prefHeight="217.0" prefWidth="507.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="7.0">
+                                 <children>
+                                    <GridPane fx:id="paneBuVydacha" style="-fx-background-color: #87CEEB;">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <Label layoutX="2.0" layoutY="183.0" prefHeight="31.0" prefWidth="339.0" style="-fx-background-color: #fafafa;" text="Выбрать это оборудования для выдачи?" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="166.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                   <padding>
+                                                      <Insets left="2.0" />
+                                                   </padding>
+                                                </Label>
+                                                <Button fx:id="vydachaVyborPanelPoikaBtnBu" layoutX="357.0" layoutY="182.0" mnemonicParsing="false" onAction="#handlePoiskInTable" prefHeight="14.0" prefWidth="150.0" styleClass="button1" stylesheets="@../styles/style_sheet.css" text="Выбор" AnchorPane.rightAnchor="2.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Button>
+                                                <TableView fx:id="tableVydachaBU" layoutX="1.0" layoutY="2.0" prefHeight="179.0" prefWidth="506.0" tableMenuButtonVisible="true" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="0.0">
+                                                   <columns>
+                                                      <TableColumn fx:id="colBUInv" prefWidth="75.0" text="Инв №" />
+                                                      <TableColumn fx:id="colBUISN" prefWidth="75.0" text="S/N" />
+                                                      <TableColumn fx:id="colBUName" prefWidth="53.0" text="Наименование" />
+                                                      <TableColumn fx:id="colBUPrinyal" prefWidth="137.0" text="Кто принял" />
+                                                      <TableColumn fx:id="colBUSdal" minWidth="0.0" prefWidth="60.0" text="Кто сдал" />
+                                                      <TableColumn fx:id="colBUMAC" prefWidth="157.0" text="MAC" />
+                                                   </columns>
+                                                   <columnResizePolicy>
+                                                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                   </columnResizePolicy>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </GridPane>
+                                    <GridPane fx:id="paneNewVydacha" style="-fx-background-color: #87CEEB;">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <TableView fx:id="tablePoisk" layoutY="3.0" prefHeight="169.0" prefWidth="506.0" tableMenuButtonVisible="true" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="0.0">
+                                                   <columns>
+                                                      <TableColumn fx:id="colInv" prefWidth="75.0" text="Инв. Номер" />
+                                                      <TableColumn fx:id="colSN" prefWidth="75.0" text="S/N" />
+                                                      <TableColumn fx:id="colName" prefWidth="75.0" text="Наименование" />
+                                                      <TableColumn fx:id="colMac" prefWidth="75.0" text="Mac-Adrdess" />
+                                                   </columns>
+                                                   <columnResizePolicy>
+                                                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                   </columnResizePolicy>
+                                                </TableView>
+                                                <Label layoutX="1.0" layoutY="176.0" prefHeight="31.0" prefWidth="337.0" style="-fx-background-color: #fafafa;" text="Выбрать это оборудования для выдачи?" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="168.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Button fx:id="vydachaVyborPanelPoikaBtnNew" layoutX="357.0" layoutY="175.0" mnemonicParsing="false" onAction="#handlePoiskInTable" prefHeight="32.0" prefWidth="150.0" styleClass="button1" stylesheets="@../styles/style_sheet.css" text="Выбор" AnchorPane.rightAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Button>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </GridPane>
+                                    <GridPane fx:id="panePustyshVydacha" style="-fx-background-color: #87CEEB;">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints maxHeight="99.00000610351563" minHeight="10.0" prefHeight="79.00000610351563" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                 </children>
+                              </StackPane>
+                           </children>
+                        </AnchorPane>
+                        <TextField fx:id="invTextField" layoutX="9.0" layoutY="102.0" prefHeight="43.0" prefWidth="368.0" promptText="Инвентарный номер" style="-fx-border-color: #87CEEB; -fx-border-color: #00293C;" styleClass="text-field" stylesheets="@../styles/style_sheet.css" />
+                        <TextField fx:id="nameTextField" layoutX="9.0" layoutY="206.0" prefHeight="43.0" prefWidth="368.0" promptText="Наименование товара" style="-fx-border-color: #87CEEB; -fx-border-color: #00293C;" />
+                        <TextField fx:id="snTextField" layoutX="9.0" layoutY="154.0" prefHeight="43.0" prefWidth="368.0" promptText="Серийный номер" style="-fx-border-color: #87CEEB; -fx-border-color: #00293C;" />
+                        <TextField fx:id="peremechenTextField" layoutX="9.0" layoutY="310.0" prefHeight="43.0" prefWidth="368.0" promptText="Перемещен на" style="-fx-border-color: #87CEEB; -fx-border-color: #00293C;" />
+                        <TextField fx:id="gorodTextField" layoutX="9.0" layoutY="258.0" prefHeight="43.0" prefWidth="368.0" promptText="Город / Адрес" style="-fx-border-color: #87CEEB; -fx-border-color: #00293C;" />
+                        <TextField fx:id="zayavka1CTextField" layoutX="443.0" layoutY="154.0" prefHeight="43.0" prefWidth="369.0" promptText="№ Заявки на перемещение 1С" style="-fx-border-color: #87CEEB; -fx-border-color: #00293C;" />
+                        <TextField fx:id="REQTextField" layoutX="442.0" layoutY="206.0" prefHeight="43.0" prefWidth="370.0" promptText="REQ номер заявки" style="-fx-border-color: #87CEEB; -fx-border-color: #00293C;" />
+                        <TextField fx:id="nomerTransportTextField" layoutX="442.0" layoutY="258.0" prefHeight="43.0" prefWidth="370.0" promptText="№ Транспортной накладной" style="-fx-border-color: #87CEEB; -fx-border-color: #00293C;" />
+                        <TextField fx:id="commentsTextField" layoutX="443.0" layoutY="362.0" prefHeight="43.0" prefWidth="368.0" promptText="Комментарий / Статус" style="-fx-border-color: #87CEEB; -fx-border-color: #00293C;" />
+                        <Button fx:id="vydatOborudBtn" layoutX="443.0" layoutY="543.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="32.0" prefWidth="368.0" style="-fx-border-color: #00293C;" styleClass="button1" stylesheets="@../styles/style_sheet.css" text="Выдать">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <graphic>
+                              <FontAwesomeIcon iconName="CHECK" size="20">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </FontAwesomeIcon>
+                           </graphic>
+                        </Button>
+                        <CheckBox fx:id="chckBxVydacha" layoutX="443.0" layoutY="478.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="368.0" text="Данные проверенны и введены корректно" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </CheckBox>
+                        <DatePicker fx:id="dateField" layoutX="9.0" layoutY="362.0" prefHeight="43.0" prefWidth="368.0" promptText="Дата заявки" style="-fx-border-color: #87CEEB;" styleClass="DatePicker" stylesheets="@../styles/style_sheet.css" />
+                        <Label fx:id="ktoVydalLbl" alignment="CENTER" layoutX="512.0" layoutY="421.0" prefHeight="43.0" prefWidth="300.0" style="-fx-border-color: #00293C; -fx-background-color: #fafafa;" />
+                        <Label layoutX="443.0" layoutY="421.0" prefHeight="43.0" prefWidth="69.0" style="-fx-border-color: #00293C; -fx-background-color: #fafafa;" text="Кто выдал:" />
+                        <TextField fx:id="MacAddresField" layoutX="443.0" layoutY="102.0" prefHeight="43.0" prefWidth="369.0" promptText="Mac-Address" style="-fx-border-color: #87CEEB; -fx-border-color: #00293C;" />
+                        <HBox alignment="CENTER_LEFT" layoutX="133.0" layoutY="421.0" prefHeight="43.0" prefWidth="244.0" spacing="10.0" style="-fx-border-color: #00293C; -fx-background-color: #fafafa;">
+                           <children>
+                              <Label prefHeight="26.0" prefWidth="223.0" text="Поля обязательные к заполнению">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <FontAwesomeIcon fill="#f62a00" iconName="BOLT" size="15">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </FontAwesomeIcon>
+                           </children>
+                        </HBox>
+                        <TextField fx:id="nomerNakl1CTextField" layoutX="442.0" layoutY="310.0" prefHeight="43.0" prefWidth="370.0" promptText="№ Накладной 1С" style="-fx-border-color: #87CEEB; -fx-border-color: #00293C;" />
+                        <Pane focusTraversable="true" layoutX="8.0" layoutY="34.0" prefHeight="43.0" prefWidth="804.0" style="-fx-background-color: #fafafa; -fx-border-color: #00293C;" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="34.0">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutY="2.0" prefHeight="40.0" prefWidth="398.0" text="Заполните данные для выдачи оборудования">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <FontAwesomeIcon fill="#f62a00" iconName="BOLT" layoutX="377.0" layoutY="133.0" size="15">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </FontAwesomeIcon>
+                        <FontAwesomeIcon fill="#f62a00" iconName="BOLT" layoutX="377.0" layoutY="185.0" size="15">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </FontAwesomeIcon>
+                        <FontAwesomeIcon fill="#f62a00" iconName="BOLT" layoutX="377.0" layoutY="237.0" size="15" text="">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </FontAwesomeIcon>
+                        <FontAwesomeIcon fill="#f62a00" iconName="BOLT" layoutX="377.0" layoutY="341.0" size="15" text="">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </FontAwesomeIcon>
+                        <FontAwesomeIcon fill="#f62a00" iconName="BOLT" layoutX="377.0" layoutY="289.0" size="15">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </FontAwesomeIcon>
+                        <FontAwesomeIcon fill="#f62a00" iconName="BOLT" layoutX="377.0" layoutY="393.0" size="15" text="">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </FontAwesomeIcon>
+                        <Label fx:id="lblVydachaError" layoutX="443.0" layoutY="594.0" prefHeight="37.0" prefWidth="368.0" textFill="#f62a00">
+                           <font>
+                              <Font size="19.1" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="gpAdd1" prefHeight="656.0" prefWidth="1395.0" style="-fx-background-color: #1e656d;">
+                     <children>
+                        <Pane layoutX="1.0" prefHeight="70.0" prefWidth="1428.0" style="-fx-background-color: #1e656d; -fx-border-color: #00293C;" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
+                           <children>
+                              <Label layoutX="8.0" layoutY="17.0" prefHeight="35.0" prefWidth="215.0" style="-fx-background-color: #fafafa;" text="Что будем дeлать?">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="comboBxVyborAdd" layoutX="280.0" layoutY="17.0" prefHeight="35.0" prefWidth="237.0" style="-fx-background-color: #fafafa;" stylesheets="@../styles/style_sheet.css" />
+                              <Button fx:id="btnVyborAdd" layoutX="589.0" layoutY="17.0" mnemonicParsing="false" onAction="#handleAdd" prefHeight="37.0" prefWidth="178.0" styleClass="button1" stylesheets="@../styles/style_sheet.css" text="Выбрать">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Label fx:id="lblAddError" layoutX="962.0" layoutY="18.0" prefHeight="35.0" prefWidth="317.0" textFill="#f62a00">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <StackPane layoutX="6.0" layoutY="70.0" prefHeight="610.0" prefWidth="1428.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="70.0">
+                           <children>
+                              <AnchorPane fx:id="editSotrAP" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1e656d;">
+                                 <children>
+                                    <Pane focusTraversable="true" layoutX="6.0" layoutY="20.0" prefHeight="43.0" prefWidth="764.0" style="-fx-background-color: #fafafa; -fx-border-color: #00293C;">
+                                       <children>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" layoutY="2.0" prefHeight="40.0" prefWidth="429.0" text="Заполните данные для редактирования сотрудника">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Pane>
+                                    <Label fx:id="lblAddError11" layoutX="6.0" layoutY="228.0" prefHeight="43.0" prefWidth="338.0" textFill="#f62a00">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="poiskLoginEditStr" layoutX="7.0" layoutY="79.0" prefHeight="43.0" prefWidth="347.0" promptText="Логин" style="-fx-border-color: #87CEEB; -fx-border-color: #00293C;" />
+                                    <Button fx:id="poiskBtnEditStr" layoutX="423.0" layoutY="79.0" mnemonicParsing="false" onAction="#handleAdd" prefHeight="43.0" prefWidth="347.0" styleClass="button1" stylesheets="@../styles/style_sheet.css" text="Найти">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <StackPane layoutX="9.0" layoutY="151.0" prefHeight="264.0" prefWidth="789.0">
+                                       <children>
+                                          <AnchorPane fx:id="apEdit" prefHeight="263.0" prefWidth="789.0" style="-fx-background-color: #1e656d;">
+                                             <children>
+                                                <TextField fx:id="EditSotrTextLogin" layoutY="14.0" prefHeight="43.0" prefWidth="347.0" promptText="Логин" style="-fx-border-color: #87CEEB; -fx-border-color: #00293C;" />
+                                                <TextField fx:id="EditSotrTextName" layoutX="417.0" layoutY="14.0" prefHeight="43.0" prefWidth="347.0" promptText="Имя" style="-fx-border-color: #00293C;" />
+                                                <TextField fx:id="EditSotrTextSurname" layoutX="417.0" layoutY="78.0" prefHeight="43.0" prefWidth="347.0" promptText="Фамилия" style="-fx-border-color: #87CEEB; -fx-border-color: #00293C;" />
+                                                <ComboBox fx:id="EditSotrCmbBxGroup" layoutX="1.0" layoutY="78.0" prefHeight="43.0" prefWidth="347.0" stylesheets="@../styles/style_sheet.css" />
+                                                <Button fx:id="btnEditSotr" layoutX="417.0" layoutY="139.0" mnemonicParsing="false" onAction="#handleAdd" prefHeight="43.0" prefWidth="347.0" styleClass="button1" stylesheets="@../styles/style_sheet.css" text="Редактировать">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Button>
+                                                <Label fx:id="EditSotrLblSuccess" alignment="CENTER" layoutX="417.0" layoutY="187.0" prefHeight="27.0" prefWidth="348.0" textFill="#2af600">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <CheckBox fx:id="EditSotrCheckResetPass" alignment="CENTER" contentDisplay="RIGHT" layoutX="153.0" layoutY="139.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="195.0" style="-fx-border-color: #00293C; -fx-background-color: #fafafa;" text="Сбросить пароль">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                   <padding>
+                                                      <Insets left="4.0" />
+                                                   </padding>
+                                                </CheckBox>
+                                                <Label fx:id="EditSotrLblError" layoutX="421.0" layoutY="214.0" prefHeight="17.0" prefWidth="344.0" textFill="#f62a00">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane fx:id="apPustyshka" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1e656d;" />
+                                       </children>
+                                    </StackPane>
+                                    <Label fx:id="EditSotrLblErrorPoisk" layoutX="423.0" layoutY="122.0" prefHeight="17.0" prefWidth="347.0" textFill="#f62a00">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="deleteSotrAP" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1e656d;">
+                                 <children>
+                                    <Pane focusTraversable="true" layoutX="6.0" layoutY="20.0" prefHeight="43.0" prefWidth="761.0" style="-fx-background-color: #fafafa; -fx-border-color: #00293C;">
+                                       <children>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" layoutY="2.0" prefHeight="40.0" prefWidth="354.0" text="Выберете логин сотрудника для удаления ">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Pane>
+                                    <Button fx:id="btnDeleteSotr" layoutX="590.0" layoutY="88.0" mnemonicParsing="false" onAction="#handleAdd" prefHeight="43.0" prefWidth="178.0" styleClass="button1" stylesheets="@../styles/style_sheet.css" text="Удалить">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Label fx:id="lblAddError12" layoutX="8.0" layoutY="218.0" prefHeight="43.0" prefWidth="338.0" textFill="#f62a00">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lblSuccessAddSotr2" alignment="CENTER" layoutX="407.0" layoutY="288.0" prefHeight="17.0" prefWidth="341.0" textFill="#2af600">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox fx:id="comboBxDeleteSotr" layoutX="6.0" layoutY="88.0" prefHeight="43.0" prefWidth="215.0" stylesheets="@../styles/style_sheet.css" />
+                                    <CheckBox fx:id="chckBxDeleteSotr" layoutX="282.0" layoutY="88.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="237.0" style="-fx-background-color: #fafafa; -fx-border-color: #00293C;" stylesheets="@../styles/style_sheet.css" text="Проверенно и верно">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="4.0" />
+                                       </padding>
+                                    </CheckBox>
+                                    <Label fx:id="labelErrorDeleteSotr" layoutX="782.0" layoutY="88.0" prefHeight="14.0" prefWidth="368.0" stylesheets="@../styles/style_sheet.css" textFill="#f62a00">
+                                       <font>
+                                          <Font size="19.1" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lblSuccessDeleteSotr" alignment="CENTER" layoutX="782.0" layoutY="103.0" prefHeight="1.0" prefWidth="361.0" textFill="#2af600">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="sotrudnkAddAP" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1e656d;">
+                                 <children>
+                                    <TextField fx:id="textLoginAdd" layoutX="7.0" layoutY="88.0" prefHeight="43.0" prefWidth="340.0" promptText="Логин" style="-fx-border-color: #87CEEB; -fx-border-color: #00293C;" />
+                                    <Pane focusTraversable="true" layoutX="6.0" layoutY="20.0" prefHeight="43.0" prefWidth="762.0" style="-fx-background-color: #fafafa; -fx-border-color: #00293C;">
+                                       <children>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" layoutY="2.0" prefHeight="40.0" prefWidth="396.0" text="Заполните данные для добавления сотрудника">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Pane>
+                                    <TextField fx:id="textNameAdd" layoutX="407.0" layoutY="88.0" prefHeight="43.0" prefWidth="362.0" promptText="Имя" style="-fx-border-color: #87CEEB; -fx-border-color: #00293C;" />
+                                    <TextField fx:id="textSurnameAdd" layoutX="406.0" layoutY="152.0" prefHeight="43.0" prefWidth="362.0" promptText="Фамилия" style="-fx-border-color: #87CEEB; -fx-border-color: #00293C;" />
+                                    <ComboBox fx:id="groupCmbXAdd" layoutX="8.0" layoutY="152.0" prefHeight="43.0" prefWidth="338.0" stylesheets="@../styles/style_sheet.css" />
+                                    <Button fx:id="btnDobAddAdmin" layoutX="406.0" layoutY="218.0" mnemonicParsing="false" onAction="#handleAdd" prefHeight="43.0" prefWidth="362.0" styleClass="button1" stylesheets="@../styles/style_sheet.css" text="Добавить">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Label fx:id="lblAddError1" layoutX="8.0" layoutY="218.0" prefHeight="43.0" prefWidth="338.0" textFill="#f62a00">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lblSuccessAddSotr" alignment="CENTER" layoutX="407.0" layoutY="288.0" prefHeight="17.0" prefWidth="341.0" textFill="#2af600">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="oborudAddAP" prefHeight="610.0" prefWidth="950.0" style="-fx-background-color: #1e656d;">
+                                 <children>
+                                    <TextField fx:id="textMacAdd1" layoutX="429.0" layoutY="148.0" prefHeight="43.0" prefWidth="340.0" promptText="Mac-Address (для принтеров)" style="-fx-border-color: #87CEEB; -fx-border-color: #00293C;" />
+                                    <Pane focusTraversable="true" layoutX="7.0" layoutY="14.0" prefHeight="43.0" prefWidth="761.0" style="-fx-background-color: #fafafa; -fx-border-color: #00293C;">
+                                       <children>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" layoutY="2.0" prefHeight="40.0" prefWidth="556.0" text="Заполните данные для добавления нового оборудования на склад">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Pane>
+                                    <TextField fx:id="textNamePrAdd" layoutX="430.0" layoutY="83.0" prefHeight="43.0" prefWidth="338.0" promptText="Наисенование" style="-fx-border-color: #87CEEB; -fx-border-color: #00293C;" />
+                                    <TextField fx:id="textInvAdd" layoutX="8.0" layoutY="83.0" prefHeight="43.0" prefWidth="339.0" promptText="Инвентарный номер" style="-fx-border-color: #87CEEB; -fx-border-color: #00293C;" />
+                                    <Button fx:id="btnDobAddOborud" layoutX="430.0" layoutY="214.0" mnemonicParsing="false" onAction="#handleAdd" prefHeight="43.0" prefWidth="338.0" styleClass="button1" stylesheets="@../styles/style_sheet.css" text="Добавить">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <TextField fx:id="textSNAdd" layoutX="8.0" layoutY="148.0" prefHeight="43.0" prefWidth="339.0" promptText="Серийный номер" style="-fx-border-color: #87CEEB; -fx-border-color: #00293C;" />
+                                    <Label fx:id="lblAddErrorOb" layoutX="430.0" layoutY="291.0" prefHeight="43.0" prefWidth="338.0" textFill="#f62a00">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lblSuccessAddOb" alignment="CENTER" layoutX="429.0" layoutY="257.0" prefHeight="17.0" prefWidth="341.0" textFill="#2af600">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="fileBtn" layoutX="11.0" layoutY="214.0" mnemonicParsing="false" onAction="#handleAdd" prefHeight="43.0" prefWidth="333.0" styleClass="button1" stylesheets="@../styles/style_sheet.css" text="Выбрать xlsx файл для иморта оборудования">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="APustyshkaRedaktor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1e656d;" />
+                           </children>
+                        </StackPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+               <rotationAxis>
+                  <Point3D />
+               </rotationAxis>
+            </StackPane>
+         </center>
+      </BorderPane>
+      <VBox layoutY="-1.0" prefHeight="756.0" prefWidth="136.0" style="-fx-background-color: #00293C;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox prefHeight="229.0" prefWidth="136.0">
+               <children>
+                  <Pane prefHeight="105.0" prefWidth="136.0" style="-fx-background-color: #00293C;">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <children>
+                        <ImageView fitHeight="106.0" fitWidth="126.0" layoutX="15.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../Hazgar%60s%20Development%20Co/1500x1500.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+               </children>
+            </VBox>
+            <Button fx:id="btnVydacha" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="43.0" prefWidth="135.0" style="-fx-background-color: #00293C;" styleClass="button2" stylesheets="@../styles/style_sheet.css" text="Выдать" textFill="WHITE">
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" iconName="ADJUST" size="15" />
+               </graphic>
+            </Button>
+            <Button fx:id="btnPrinyatie" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="43.0" prefWidth="135.0" style="-fx-background-color: #00293C;" styleClass="button2" stylesheets="@../styles/style_sheet.css" text="Принять" textFill="WHITE">
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" iconName="ARCHIVE" size="15" text="" />
+               </graphic>
+            </Button>
+            <Button fx:id="btnSpisok" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="43.0" prefWidth="135.0" style="-fx-background-color: #00293C;" styleClass="button2" stylesheets="@../styles/style_sheet.css" text="Список" textFill="WHITE">
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" iconName="LIST" selectionFill="#141e22" size="15" text="">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </FontAwesomeIcon>
+               </graphic>
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="btnAdd" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="43.0" prefWidth="135.0" style="-fx-background-color: #00293C;" styleClass="button2" stylesheets="@../styles/style_sheet.css" text="Редактор" textFill="WHITE">
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" iconName="PENCIL" size="15" />
+               </graphic>
+            </Button>
+         </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </VBox>
+      <VBox layoutY="596.0" prefHeight="119.0" prefWidth="136.0" style="-fx-background-color: #00293C;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+         <children>
+            <Button fx:id="btnNastroyiki" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="43.0" prefWidth="135.0" style="-fx-background-color: #00293C;" styleClass="button2" stylesheets="@../styles/style_sheet.css" text="Справка" textFill="WHITE">
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" iconName="QUESTION" size="17" />
+               </graphic>
+            </Button>
+            <Button fx:id="btnVyhod" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="43.0" prefWidth="135.0" style="-fx-background-color: #00293C;" styleClass="button2" stylesheets="@../styles/style_sheet.css" text="Выход" textFill="WHITE">
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" iconName="TIMES" size="15" />
+               </graphic>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </VBox>
+   </children>
+</AnchorPane>

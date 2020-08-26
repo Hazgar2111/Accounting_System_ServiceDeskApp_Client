@@ -1,0 +1,126 @@
+.text-field {
+    -fx-background-color: -fx-text-box-border, -fx-background ;
+    -fx-background-insets: 0, 0 0 1 0 ;
+    -fx-background-radius: 0 ;
+
+    -fx-border-bottom:1px ; /* Add your own border */
+    -fx-border-style: solid;
+    -fx-border-color: white;
+    -fx-color: black;
+    -fx-progress-color: black;
+
+}
+.text-field:focused {
+    -fx-background-color: -fx-focus-color, -fx-background ;
+}
+.button1{
+    -fx-background-radius: 0;
+    -fx-background-color: #C8D7DE;
+
+
+}
+
+.labelError
+{
+    -fx-color-label-visible: #f62a00;
+}
+
+.button1:hover {
+    -fx-background-color:  #f1f3ce;
+}
+
+.button4{
+    -fx-background-radius: 0;
+    -fx-background-color:  #00293C;
+   // -fx-border-color: #fafafa;
+}
+
+.button4:hover {
+    -fx-background-color: #00293C;
+    -fx-border-color: #fafafa;
+
+}
+.button6
+{
+    -fx-background-radius: 0;
+    -fx-background-color:   #f1f3ce;
+    -fx-border-color:  #00293C;
+}
+.button6:hover {
+    -fx-background-color:  #00293C;
+}
+
+.button5{
+    -fx-background-radius: 0;
+    -fx-background-color:  #f1f3ce;
+// -fx-border-color: #fafafa;
+}
+
+.button5:hover {
+   // -fx-background-color: #00293C;
+    -fx-border-color: red;
+
+}
+
+.button3{
+    -fx-background-radius: 0;
+    -fx-background-color: #5A899C;
+
+}
+.button3:hover {
+    -fx-border-color: #fafafa;
+    -fx-background-radius: 0 ;
+}
+.button2{
+    -fx-background-radius: 0;
+    -fx-background-color:   #5A899C;
+}
+
+.button2:hover {
+    -fx-border-color: #fafafa;
+    -fx-background-radius: 0 ;
+
+}
+
+
+.button7{
+    -fx-background-radius: 0;
+    -fx-border-color: #fafafa;
+    -fx-background-color:    #00293C;
+}
+
+.button7:hover {
+    -fx-background-color:    #1e656d;
+    -fx-border-color: #fafafa;
+    -fx-background-radius: 0 ;
+
+}
+
+
+
+.table-view .column-header,
+.table-view .column-header-background ,filer{
+    -fx-cell-size: 20;
+    -fx-background-color: #fafafa;
+    -fx-border-color:  #3C5B68;
+}
+.table-view .column{
+    -fx-border-color:  #3C5B68;
+}
+
+.DatePicker {
+    -fx-background-radius: 0;
+}
+
+.combo-box
+{
+    -fx-border-color:  #00293C;
+    -fx-background-radius: 0;
+}
+
+.checkBxPrinyat:hover
+{
+    -fx-border-color: red;
+}
+
+
