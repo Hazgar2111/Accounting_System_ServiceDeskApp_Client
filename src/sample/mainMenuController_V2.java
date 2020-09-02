@@ -1548,7 +1548,6 @@ public class mainMenuController_V2 implements Initializable {
     }
 
 
-    //доделать поиск (contains())
     @FXML
     public void handlePoiskInTable(javafx.event.ActionEvent event) {
         // панель поиска в меню выдачи
@@ -1663,7 +1662,6 @@ public class mainMenuController_V2 implements Initializable {
     }
 
 
-    //нормально ищет (можно добавить lowercase)
     @FXML
     public void handlePoiskInPrinyat(javafx.event.ActionEvent event) {
         //в меню принятия
